@@ -1,6 +1,7 @@
 from django.db import models
 from utils import upload_function
 from django.urls import reverse
+from datetime import date
 
 
 class Post(models.Model):

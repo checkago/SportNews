@@ -11,7 +11,7 @@ class IndexView(views.View):
     def get(self, request, *args, **kwargs):
         title = 'Новости бокса'
         description = 'Новости и события произошедшие в мировом боксе'
-        news_list = Post.objects.order_by('-date')
+        news_list = Post.objects.all().order_by('-id')
         paginator = Paginator(news_list, 2)
         page_number = request.GET.get('page')
         page_obj = paginator.get_page(page_number)
@@ -24,7 +24,6 @@ def post_detail(request, slug):
     post = get_object_or_404(Post, slug=slug)
     # List of active comments for this post
     comments = post.comments.filter(active=True)
-
 
     if request.method == 'POST':
         # A comment was posted
