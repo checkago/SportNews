@@ -1,0 +1,193 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" class="full-height">
+
+<head>
+  <!-- Required meta tags always come first -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>{{ title }}</title>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+  <!-- Bootstrap core CSS -->
+  <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+  <!-- Material Design Bootstrap -->
+  <link href="{% static 'css/mdb.min.css' %}" rel="stylesheet">
+</head>
+
+<body>
+
+  <!--Main Navigation-->
+  <header>
+
+    <!--Navbar-->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-primary">
+      <div class="container">
+        <a class="navbar-brand" href="#"><strong>НОВОСТИ БОКСА</strong></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-7"
+          aria-controls="navbarSupportedContent-7" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent-7">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="{% url 'index' %}">Главная</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+  </header>
+  <!--Main Navigation-->
+
+  <!--Main Layout-->
+  <main>
+
+    <div class="container pt-5">
+
+
+      <!-- Section: Pricing v.3 -->
+      <section class="wow mt-5">
+
+        <!-- Section heading -->
+        <h2 class="h1-responsive font-weight-bold text-center">Новости</h2>
+      {% if page_obj %}
+          <nav aria-label="Page navigation example">
+              <ul class="pagination justify-content-center">
+               {% if page_obj.has_previous %}
+                <li class="page-item">
+                  <a class="page-link" href="?page={{ page_obj.previous_page_number }}">Предыдущая</a>
+                </li>
+                  {% endif %}
+              {% for p in paginator.page_range %}
+                  {% if page_obj.number == p %}
+                <li class="page-item active" aria-current="page">
+                  <a class="page-link" href="#">{{ p }} <span class="visually-hidden"></span></a>
+                </li>
+                   {% else %}
+                <li class="page-item"><a class="page-link" href="?page={{ p }}">{{ p }}</a></li>
+                  {% endif %}
+              {% endfor %}
+              {% if page_obj.has_next %}
+                <li class="page-item">
+                  <a class="page-link" href="?page={{ page_obj.next_page_number }}">Следующая</a>
+                </li>
+               {% endif %}
+              </ul>
+            </nav>
+      {% else %}
+      {% endif %}
+        {% for Post in page_obj %}
+          <div class="card mb-3">
+              <div class="card-body pt-1 pb-1 mt-1 mb-1">
+
+                  <div class="row">
+                  <div class="col-md-12">
+                                <h5 class="text-right text-dark font-weight-bold black-text">{{ Post.name }}</h5>
+                            </div>
+                    <div class="col-md-3">
+                        {% if Post.image != Null %}
+                            <img class='img-fluid' src="{{ Post.image.url }}" />
+                        {% else %}
+
+                        {% endif %}
+                    </div>
+                    <div class="col-md-9 mt-1">
+
+                        <h6 class="text-right text-dark black-text">{{ Post.date|date:"d.m.Y" }}</h6>
+
+                        <hr class="mb-1" />
+                        {{ Post.description | safe | slice:":200" }}...
+                        <hr>
+                        <div class="row">
+                            <div class="col-md-4 justify-content align-items-center">
+                                Комментарии: {{ Post.get_comments_count }}
+                            </div>
+                            <div class="col-md-8">
+                                <a href="{{ Post.get_absolute_url }}" class="btn bg-primary text-white float-right btn-sm">Читать далее</a>
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+              </div>
+            </div>
+      {% endfor %}
+
+        {%  if page_obj %}
+      <nav aria-label="Page navigation example">
+          <ul class="pagination justify-content-center">
+           {% if page_obj.has_previous %}
+            <li class="page-item">
+              <a class="page-link" href="?page={{ page_obj.previous_page_number }}">Предыдущая</a>
+            </li>
+              {% endif %}
+          {% for p in paginator.page_range %}
+              {% if page_obj.number == p %}
+            <li class="page-item active" aria-current="page">
+              <a class="page-link" href="#">{{ p }} <span class="visually-hidden"></span></a>
+            </li>
+               {% else %}
+            <li class="page-item"><a class="page-link" href="?page={{ p }}">{{ p }}</a></li>
+              {% endif %}
+          {% endfor %}
+          {% if page_obj.has_next %}
+            <li class="page-item">
+              <a class="page-link" href="?page={{ page_obj.next_page_number }}">Следующая</a>
+            </li>
+           {% endif %}
+          </ul>
+        </nav>
+      {% else %}
+      {% endif %}
+
+      </section>
+      <!-- Section: Pricing v.3 -->
+
+
+    </div>
+
+  </main>
+  <!--Main Layout-->
+
+
+  <!--Footer-->
+  <footer class="page-footer pt-4 mt-4   text-center text-md-left mt-5">
+
+    <!--Footer Links-->
+    <div class="container">
+
+    </div>
+
+
+  </footer>
+  <!--/.Footer-->
+
+
+  <!--  SCRIPTS  -->
+  <!-- JQuery -->
+  <script type="text/javascript" src="{% static 'js/jquery.min.js' %}"></script>
+  <!-- Bootstrap tooltips -->
+  <script type="text/javascript" src="{% static 'js/popper.min.js' %}"></script>
+  <!-- Bootstrap core JavaScript -->
+  <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+  <!-- MDB core JavaScript -->
+  <script type="text/javascript" src="{% static 'js/mdb.min.js' %}"></script>
+
+  <script>
+        $('.navbar-collapse').on('click', function () {
+            $('.navbar-collapse').collapse('hide');
+            $a = $($(this).attr('href'));
+            $('html,body').animate({ scrollTop: $a.offset().top - 50}, 500);
+            return false;
+        });
+   </script>
+  <script>
+    $(document).ready(() => {
+      new WOW().init();
+    });
+  </script>
+</body>
+
+</html>

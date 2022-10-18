@@ -1,0 +1,22 @@
+version: "3"
+
+services:
+  web:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    volumes:
+      - ./:/usr/src/web
+    ports:
+      - "8880:8880"
+
+  nginx:
+    build:
+      context: ./docker/nginx
+      dockerfile: Dockerfile
+    ports:
+    - "8800:8800"
+    depends_on:
+      - web
+
+

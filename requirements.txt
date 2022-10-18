@@ -1,0 +1,8 @@
+asgiref
+Django
+django-ckeditor
+django-crispy-forms
+django-js-asset
+gunicorn
+Pillow
+sqlparse
