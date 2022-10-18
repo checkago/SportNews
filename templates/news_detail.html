@@ -52,42 +52,50 @@
 
 
       <!-- Section: Pricing v.3 -->
-      <section class="wow mt-5">
+      <section class="wow mt-5 mb-5">
         <h4 class="font-weight-bold">{{ post.name }}</h4>
         <h5 class="">{{ post.date }}</h5>
         <div class="">
             <img class='img-fluid' src="{{ post.image.url }}" />
         </div>
           <div class="pt-3">
-              {{ post.description }}
+              {{ post.description|safe }}
           </div>
 
       </section>
-      <hr>
+        <hr>
+    {% if comments %}
         <h5>Комментарии</h5>
           {% for Comment in comments %}
           <div class="card mb-3">
               <div class="card-body">
-                  <div class="text-right">{{ Comment.created }}</div>
-                  <hr>
-                  <div class="col-md-2">
-
-                  </div>
-                  <div class="col-md-10">
-                      <div>
+                  <div class="row">
+                      <div class="col-md-6">
                           <h5>{{ Comment.name }}</h5>
-                      </div>
-                      <div>
                           <h6>{{ Comment.email }}</h6>
                       </div>
-                      <hr>
-                      <div>
-                          {{ Comment.body|linebreaks }}
+                      <div class="col-md-6 text-right">
+                          {{ Comment.created }}
                       </div>
                   </div>
+                  <hr>
+                  <div class="row">
+                      <div class="col-md-2">
+                          <img src="{{ Comment.avatar.image.url }}" class="border border-primary rounded-lg" />
+                      </div>
+                      <div class="col-md-10">
+                          <div>
+                              {{ Comment.body|linebreaks }}
+                          </div>
+                      </div>
+                  </div>
+
               </div>
           </div>
           {% endfor %}
+    {% else %}
+        <h5>Под этой публикацие пока еще нет комментариев</h5>
+    {% endif %}
     <section class="pt-3">
       {% if new_comment %}
             <h5>Ваш комментарий добавлен</h5>

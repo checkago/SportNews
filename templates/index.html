@@ -101,7 +101,7 @@
                         <hr class="mb-1" />
                         {{ Post.description | safe | slice:":200" }}...
                         <hr>
-                        <div class="row">
+                        <div class="row mb-2">
                             <div class="col-md-4 justify-content align-items-center">
                                 Комментарии: {{ Post.get_comments_count }}
                             </div>

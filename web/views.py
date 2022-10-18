@@ -25,6 +25,7 @@ def post_detail(request, slug):
     # List of active comments for this post
     comments = post.comments.filter(active=True)
 
+
     if request.method == 'POST':
         # A comment was posted
         comment_form = CommentForm(data=request.POST)

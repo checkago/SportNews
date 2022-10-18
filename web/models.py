@@ -45,6 +45,10 @@ class Comment(models.Model):
         verbose_name_plural = 'Комментарии'
         ordering = ('created',)
 
+    @property
+    def avatar(self):
+        return Avatar.objects.order_by("?").first()
+
     def __str__(self):
         return 'Комментарий {} на {}'.format(self.name, self.post)
 
@@ -56,6 +60,4 @@ class Avatar(models.Model):
         verbose_name = 'Аватар'
         verbose_name_plural = 'Аватарки'
 
-    def __str__(self):
-        return self.id
 
