@@ -18,10 +18,6 @@ class Post(models.Model):
     def __str__(self):
         return self.name
 
-    @property
-    def ct_model(self):
-        return self._meta.model_name
-
     def get_comments(self):
         return self.comments.filter(post=self).all()
 

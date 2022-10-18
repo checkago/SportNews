@@ -3,7 +3,7 @@ from django.http import HttpResponseRedirect
 from django.core.paginator import Paginator
 from .forms import *
 from django import views
-from .models import *
+from web.models import *
 
 
 class IndexView(views.View):

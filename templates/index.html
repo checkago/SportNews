@@ -1,8 +1,11 @@
 {% load static %}
+{% load recaptcha3 %}
 <!DOCTYPE html>
 <html lang="en" class="full-height">
 
 <head>
+    {% recaptcha_init %}
+    {% recaptcha_ready action_name='post_detail' %}
   <!-- Required meta tags always come first -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">

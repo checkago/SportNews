@@ -1,11 +1,14 @@
 {% load static %}
 {% load crispy_forms_field %}
 {% load crispy_forms_tags %}
+{% load recaptcha3 %}
 <!DOCTYPE html>
 <html lang="en" class="full-height">
 
 <head>
   <!-- Required meta tags always come first -->
+    {% recaptcha_init %}
+    {% recaptcha_ready action_name='post_detail' %}
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
