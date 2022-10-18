@@ -110,9 +110,9 @@
                         <div class="card-body">
                           <!--Header-->
                         <div class="md-form">
-                            <i class="fas fa-id-card prefix text-primary"></i>
+                            <i class="fas fa-user prefix text-primary"></i>
                             {% crispy_field comment_form.name 'class' 'form-control' 'placeholder' '' %}
-                            <label data-error="Не верно" data-success="Верно" for="form2"><strong>{{ comment_form.name.label }}</strong></label>
+                            <label data-error="Не верно" data-success="Верно" for="form2"><strong>{{ comment_form.name.label }} *</strong></label>
                         </div>
 
                         <div class="md-form">
@@ -124,7 +124,7 @@
                         <div class="md-form">
                             <i class="fas fa-comment-alt prefix text-primary"></i>
                             {% crispy_field comment_form.body 'class' 'form-control  md-textarea' 'placeholder' '' %}
-                            <label data-error="Не верно" data-success="Верно" for="form2"><strong>{{ comment_form.body.label }}</strong></label>
+                            <label data-error="Не верно" data-success="Верно" for="form2"><strong>{{ comment_form.body.label }} *</strong></label>
                         </div>
 
                         <button type="submit" class="btn bg-primary waves-effect text-white">Отправить</button>
