@@ -1,4 +1,3 @@
-import self as self
 from django.db import models
 from utils import upload_function
 from django.urls import reverse
