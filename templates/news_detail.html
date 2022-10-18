@@ -49,7 +49,7 @@
   <!--Main Navigation-->
 
   <!--Main Layout-->
-  <main class="pb-5 mb-5">
+  <main class="pb-3 mb-3">
 
     <div class="container pt-5">
 
@@ -84,9 +84,9 @@
                   <hr>
                   <div class="row">
                       <div class="col-md-2">
-                          <img src="{{ Comment.avatar.image.url }}" class="border border-primary rounded-lg" />
+                          <img src="{{ Comment.avatar.image.url }}" style="max-height:100px;" class="border border-primary rounded-lg" />
                       </div>
-                      <div class="col-md-10">
+                      <div class="col-md-10 mt-2">
                           <div>
                               {{ Comment.body|linebreaks }}
                           </div>
@@ -97,7 +97,7 @@
           </div>
           {% endfor %}
     {% else %}
-        <h5>Под этой публикацие пока еще нет комментариев</h5>
+        <h5>Под этой публикацией пока еще нет комментариев. Будьте первым.</h5>
     {% endif %}
     <section class="pt-3">
       {% if new_comment %}
@@ -129,8 +129,9 @@
                             {% crispy_field comment_form.body 'class' 'form-control  md-textarea' 'placeholder' '' %}
                             <label data-error="Не верно" data-success="Верно" for="form2"><strong>{{ comment_form.body.label }} *</strong></label>
                         </div>
-
-                        <button type="submit" class="btn bg-primary waves-effect text-white">Отправить</button>
+                        <div class="card-footer bg-white d-flex justify-content-center">
+                            <button type="submit" class="btn bg-primary waves-effect text-white">Отправить</button>
+                        </div>
                       </div>
                     </div>
                 </form>
@@ -144,7 +145,7 @@
 
 
   <!--Footer-->
-  <footer class="bg-primary text-white text-center text-lg-start fixed-bottom">
+  <footer class="bg-primary text-white text-center text-lg-start">
       <!-- Copyright -->
       <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
         © 2022

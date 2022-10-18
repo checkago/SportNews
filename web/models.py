@@ -6,7 +6,7 @@ from datetime import date
 
 class Post(models.Model):
     name = models.CharField(max_length=255, verbose_name='Заголовок')
-    date = models.DateField(auto_now_add=True, verbose_name='Дата публикации')
+    date = models.DateTimeField(auto_now_add=True, verbose_name='Дата публикации')
     slug = models.SlugField(unique=True, verbose_name='Псевдоним/Slug')
     description = models.TextField(verbose_name='Текст')
     image = models.ImageField(upload_to=upload_function, verbose_name='Изображение')

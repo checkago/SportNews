@@ -1,0 +1,5 @@
+CREATE USER sportnews WITH PASSWORD 'R&mbler9';
+
+CREATE DATABASE sportnews;
+
+GRANT ALL PRIVILEGES ON DATABASE sportnews TO sportnews;
