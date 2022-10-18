@@ -7,4 +7,3 @@ django-js-asset
 gunicorn
 Pillow
 sqlparse
-django-recaptcha3
