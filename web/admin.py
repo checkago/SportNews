@@ -24,3 +24,8 @@ class PostAdmin(admin.ModelAdmin):
 class CommentAdmin(admin.ModelAdmin):
     list_display = ('name', 'created', 'post')
 
+
+@admin.register(Avatar)
+class AvatarAdmin(admin.ModelAdmin):
+    list_display = ('id',)
+
