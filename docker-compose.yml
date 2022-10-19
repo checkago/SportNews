@@ -12,12 +12,12 @@ services:
     ports:
     - "5432:5432"
 
-  web:
+  baza:
     build:
       context: ./
       dockerfile: Dockerfile
     volumes:
-      - ./:/usr/src/bibsite
+      - ./:/usr/src/baza
     ports:
       - "8080:8080"
     depends_on:
@@ -30,6 +30,6 @@ services:
     ports:
     - "80:80"
     depends_on:
-      - web
+      - baza
 
 
