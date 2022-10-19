@@ -3,7 +3,7 @@ FROM python:3.9-alpine
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
-WORKDIR /usr/src/web
+WORKDIR /usr/src/sport
 
 COPY requirements.txt .
 COPY entrypoint.sh .
@@ -14,14 +14,12 @@ RUN apk add postgresql-dev
 RUN apk add nano
 
 RUN pip install --upgrade pip
-RUN pip install psycopg2-binary
 RUN pip install -r requirements.txt
-RUN pip install -vvv django-recaptcha3
-RUN pip install django-recaptcha3 --upgrade
+
 
 
 RUN chmod +x entrypoint.sh
 
 COPY . .
 
-ENTRYPOINT ["sh", "/usr/src/web/entrypoint.sh"]
+ENTRYPOINT ["sh", "/usr/src/sport/entrypoint.sh"]
