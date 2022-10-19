@@ -9,10 +9,11 @@ COPY requirements.txt .
 COPY entrypoint.sh .
 
 RUN apk --update add
-RUN apk add gcc libc-dev libffi-dev jpeg-dev zlib-dev libjpeg libwebp-dev python-psycopg2
+RUN apk add gcc libc-dev libffi-dev jpeg-dev zlib-dev libjpeg libwebp-dev
 RUN apk add postgresql-dev
 
 RUN pip install --upgrade pip
+RUN pip install psycopg2-binary
 RUN pip install -r requirements.txt
 RUN pip install -vvv django-recaptcha3
 
