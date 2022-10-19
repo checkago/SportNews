@@ -15,6 +15,8 @@ import environ
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
+import snowpenguin
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
@@ -44,6 +46,7 @@ INSTALLED_APPS = [
     'ckeditor',
     'ckeditor_uploader',
     'crispy_forms',
+    'snowpenguin.django.recaptcha3',
 
 ]
 
