@@ -6,7 +6,7 @@ services:
       context: ./docker/postgres
       dockerfile: Dockerfile
     environment:
-      - POSTGRES_PASSWORD=c41916312
+      - POSTGRES_PASSWORD=Bib52211443
     volumes:
     - ./docker/postgres/init.sql:/docker-entrypoint-initdb.d/init.sql
     ports:
@@ -17,7 +17,7 @@ services:
       context: ./
       dockerfile: Dockerfile
     volumes:
-      - ./:/usr/src/mspirits
+      - ./:/usr/src/bibsite
     ports:
       - "8080:8080"
     depends_on:
