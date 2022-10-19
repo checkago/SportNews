@@ -14,6 +14,7 @@ RUN apk add postgresql-dev
 
 RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
+RUN pip install -vvv django-recaptcha3
 
 
 RUN chmod +x entrypoint.sh
