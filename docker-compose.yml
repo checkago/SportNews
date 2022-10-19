@@ -6,7 +6,7 @@ services:
       context: ./docker/postgres
       dockerfile: Dockerfile
     environment:
-      - POSTGRES_PASSWORD=Rambler
+      - POSTGRES_PASSWORD=c41916312
     volumes:
     - ./docker/postgres/init.sql:/docker-entrypoint-initdb.d/init.sql
     ports:
@@ -17,7 +17,7 @@ services:
       context: ./
       dockerfile: Dockerfile
     volumes:
-      - ./:/usr/src/sport
+      - ./:/usr/src/mspirits
     ports:
       - "8080:8080"
     depends_on:
