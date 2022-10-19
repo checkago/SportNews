@@ -11,7 +11,6 @@ COPY entrypoint.sh .
 RUN apk --update add
 RUN apk add gcc libc-dev libffi-dev jpeg-dev zlib-dev libjpeg libwebp-dev
 RUN apk add postgresql-dev
-RUN apk add nano
 
 RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
