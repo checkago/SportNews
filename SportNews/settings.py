@@ -29,7 +29,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'betboxing.ru']
 
-
+env = environ.Env()
+environ.Env.read_env('.env')
 # Application definition
 
 INSTALLED_APPS = [
@@ -43,7 +44,7 @@ INSTALLED_APPS = [
     'ckeditor',
     'ckeditor_uploader',
     'crispy_forms',
-
+    'snowpenguin.django.recaptcha3'
 ]
 
 
@@ -105,6 +106,7 @@ DATABASES = {
         'PORT': env("POSTGRES_PORT")
     }
 }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
