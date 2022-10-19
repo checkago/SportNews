@@ -14,6 +14,8 @@ import os
 import environ
 from pathlib import Path
 
+env = environ.Env()
+environ.Env.read_env('.env')
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -29,8 +31,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'betboxing.ru', 'www.betboxing.ru']
 
-env = environ.Env()
-environ.Env.read_env('.env')
 # Application definition
 
 INSTALLED_APPS = [
