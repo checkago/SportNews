@@ -16,6 +16,7 @@ RUN pip install --upgrade pip
 RUN pip install psycopg2-binary
 RUN pip install -r requirements.txt
 RUN pip install -vvv django-recaptcha3
+RUN pip install django-recaptcha3 --upgrade
 
 
 RUN chmod +x entrypoint.sh
