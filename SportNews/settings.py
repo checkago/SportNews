@@ -29,7 +29,7 @@ SECRET_KEY = 'django-insecure-ns%6c2*eze=zlb&v2v77zjz5f1q*tf8toaz09(&@jskp01(f2%
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'betboxing.ru']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'betboxing.ru', 'www.betboxing.ru']
 
 env = environ.Env()
 environ.Env.read_env('.env')
