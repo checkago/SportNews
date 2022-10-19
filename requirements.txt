@@ -6,6 +6,6 @@ django-crispy-forms
 django-js-asset
 django-recaptcha3
 gunicorn
-psycopg2-binary
+psycopg2-binary==2.8.6
 Pillow
 sqlparse
