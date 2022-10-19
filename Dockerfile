@@ -11,7 +11,8 @@ COPY entrypoint.sh .
 RUN apk --update add
 RUN apk add gcc libc-dev libffi-dev jpeg-dev zlib-dev libjpeg libwebp-dev
 RUN apk add postgresql-dev
-RUN apt install mc -y
+RUN ["apt-get", "update"]
+RUN ["apt-get", "install", "-y", "vim"]
 
 RUN pip install --upgrade pip
 RUN pip install psycopg2-binary
