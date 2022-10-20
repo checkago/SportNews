@@ -1,5 +1,5 @@
 asgiref
-Django
+Django==3.2.16
 django-environ
 django-ckeditor
 django-crispy-forms
