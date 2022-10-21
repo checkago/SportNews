@@ -25,7 +25,7 @@ def post_detail(request, slug):
     # List of active comments for this post
     comments = post.comments.filter(active=True)
     title = post.name
-    description = post.description
+    description = post.description.slice(':175')
 
     if request.method == 'POST':
         # A comment was posted
