@@ -24,6 +24,8 @@ def post_detail(request, slug):
     post = get_object_or_404(Post, slug=slug)
     # List of active comments for this post
     comments = post.comments.filter(active=True)
+    title = Post.name
+    description = Post.description
 
     if request.method == 'POST':
         # A comment was posted
@@ -38,5 +40,6 @@ def post_detail(request, slug):
             return HttpResponseRedirect(request.META['HTTP_REFERER'])
     else:
         comment_form = CommentForm()
-    return render(request, 'news_detail.html', {'post': post, 'comments': comments, 'comment_form': comment_form})
+    return render(request, 'news_detail.html', {'post': post, 'comments': comments, 'comment_form': comment_form,
+                                                'title': title, 'description': description})
 
