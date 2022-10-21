@@ -24,8 +24,8 @@ def post_detail(request, slug):
     post = get_object_or_404(Post, slug=slug)
     # List of active comments for this post
     comments = post.comments.filter(active=True)
-    title = Post.name
-    description = Post.description
+    title = post.name
+    description = post.description
 
     if request.method == 'POST':
         # A comment was posted
