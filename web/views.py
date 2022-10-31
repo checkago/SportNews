@@ -12,7 +12,7 @@ class IndexView(views.View):
         title = 'Новости бокса'
         description = 'Новости и события произошедшие в мировом боксе'
         news_list = Post.objects.all().order_by('-date')
-        paginator = Paginator(news_list, 2)
+        paginator = Paginator(news_list, 15)
         page_number = request.GET.get('page')
         page_obj = paginator.get_page(page_number)
 
